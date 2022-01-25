@@ -1,0 +1,50 @@
+apiVersion: skaffold/v2beta12
+kind: Config
+metadata:
+  name: product
+
+profiles:
+  - name: kind
+    build:
+      insecureRegistries:
+        - harbor.ezpmp.co.kr
+      local:
+        push: false
+      artifacts:
+        - image: ezpmp/product-api
+          jib:
+            type: maven
+            args:
+              - -DskipTests
+              - "-Djib.container.environment=SPRING_PROFILES_ACTIVE=kind,TZ=Asia/Seoul"
+            fromImage: adoptopenjdk/openjdk11:alpine-jre
+    deploy:
+      kubectl:
+        manifests:
+          - k8s/product-api.yaml
+          - k8s/fluentbit-configmap.yaml
+
+    portForward:
+      - resourceType: service
+        resourceName: product-api-svc
+        port: 1070 #
+        localPort: 1070 # *Optional*
+  - name: prod
+    build:
+      local:
+        push: true
+        tryImportMissing: true
+      artifacts:
+        - image: harbor.ezpmp.co.kr/ezpmp/product-api
+          jib:
+            type: maven
+            args:
+              - -DskipTests
+              - "-Djib.container.environment=SPRING_PROFILES_ACTIVE=prod,TZ=Asia/Seoul"
+            fromImage: adoptopenjdk/openjdk11:alpine-jre
+
+    deploy:
+      kubectl:
+        manifests:
+          - k8s/product-api.yaml
+          - k8s/fluentbit-configmap.yaml
