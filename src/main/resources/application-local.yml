@@ -10,14 +10,14 @@ spring:
 
 #    program:
 #      url: "jdbc:mysql://localhost:3306/program?serverTimezone=UTC&autoReconnect=true&useUnicode=true&characterEncoding=utf8"
-#      username: "ezpmp"
-#      password: dlwmvldpavl
+#      username: "root"
+#      password: root
 #      driverClassName: com.mysql.cj.jdbc.Driver
 #
 #    common:
 #      url: "jdbc:mysql://localhost:3306/common?serverTimezone=UTC&autoReconnect=true&useUnicode=true&characterEncoding=utf8"
-#      username: "ezpmp"
-#      password: dlwmvldpavl
+#      username: "root"
+#      password: root
 #      driverClassName: com.mysql.cj.jdbc.Driver
 
 servlet:

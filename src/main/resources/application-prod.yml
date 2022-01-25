@@ -2,25 +2,12 @@ spring:
   jpa:
     show-sql: true
   multi-datasource:
-    product:
-      url: "jdbc:mysql://210.179.122.169:3306/product?serverTimezone=UTC&autoReconnect=true&useUnicode=true&characterEncoding=utf8"
-      username: "ezpmp"
-      password: dlwmvldpavl
+    sample:
+      url: "jdbc:mysql://localhost:3306/sample?serverTimezone=UTC&autoReconnect=true&useUnicode=true&characterEncoding=utf8"
+      username: "root"
+      password: root
       driverClassName: com.mysql.cj.jdbc.Driver
 
-    program:
-      url: "jdbc:mysql://210.179.122.169:3306/program?serverTimezone=UTC&autoReconnect=true&useUnicode=true&characterEncoding=utf8"
-      username: "ezpmp"
-      password: dlwmvldpavl
-      driverClassName: com.mysql.cj.jdbc.Driver
-
-  mail:
-    smtp:
-      host: smtp.gmail.com
-      port: 587
-      user: email
-      pass: password
-      sender: ezpmp
 servlet:
     multipart:
       location: D:/image
@@ -32,7 +19,7 @@ server:
 
 ezpmp:
   swagger:
-    base-package: "com.ezpmp.api"
+    base-package: "com.sample.api"
     enabled: false
   redis: ### Redis 설정
     holdingTime: '1'
@@ -47,4 +34,4 @@ ezpmp:
         min-idle: 2
 
 properties:
-  aesKey: dlwmvldpavl!!234
+  aesKey: Qwer!234
