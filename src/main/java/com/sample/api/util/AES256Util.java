@@ -21,7 +21,7 @@ import java.security.NoSuchAlgorithmException;
 
 /******************************************************************
  * <pre>
- * com.ezpmp.core.util
+ * com.sample.api.util
  * ㄴ AES256Util.java
  *  </pre>
  * @author   : Park Jin Su
